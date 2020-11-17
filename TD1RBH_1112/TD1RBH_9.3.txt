@@ -1,0 +1,9 @@
+SELECT tipus, COUNT(*) db FROM Tanfolyam GROUP BY tipus;
+
+SELECT kurzus, COUNT(*) db FROM befizetes GROUP BY kurzus;
+
+SELECT t.nev, COUNT(*) db FROM befizetes b INNER JOIN tanfolyam t ON b.kurzus = t.kod;
+
+SELECT t.nev, COUNT(*) db FROM befizetes b INNER JOIN tanfolyam t ON b.kurzus = t.kod WHERE b.befizetes = t.ar;
+
+SELECT r.lakcim, COUNT(*) db FROM befizetes b INNER JOIN resztvevo r ON b.diak = r.tajszam WHERE b.kurzus IN (SELECT tkod FROM tanfolyam WHERE megnevezes = 'X');

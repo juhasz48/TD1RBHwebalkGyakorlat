@@ -1,0 +1,6 @@
+SELECT COUNT(*) FROM termek WHERE ear > (SELECT avg(ear) FROM termek);
+
+SELECT nev FROM termek WHERE ear = (SELECT max(ear) FROM termek);
+
+SELECT nev FROM gyarto IN (SELECT gyarto FROM termek WHERE ear = (SELECT max(ear) FROM termek));
+
