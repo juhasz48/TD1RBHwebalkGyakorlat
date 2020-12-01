@@ -1,0 +1,38 @@
+CREATE TABLE Keszlet
+(k_kod INT PRIMARY KEY NOT NULL,
+meret INT,
+gyartasi_ev DATE NOT NULL,
+db INT);
+
+CREATE TABLE Beszallito
+(b_kod INT PRIMARY KEY NOT NULL,
+nev VARCHAR(30),
+irsz CHAR(4),
+utca VARCHAR(40),
+hsz INT);
+
+CREATE TABLE Megrendelesek
+(m_kod INT PRIMARY KEY NOT NULL,
+db INT,
+datum DATE NOT NULL,
+nev VARCHAR(30),
+k_kod INT,
+FOREIGN KEY (k_kod) REFERENCES Keszlet(k_kod));
+
+CREATE TABLE Gyartas
+(gy_kod INT PRIMARY KEY NOT NULL,
+kaucsuk INT,
+olaj INT,
+idotartam INT,
+k_kod INT,
+FOREIGN KEY (k_kod) REFERENCES Keszlet(k_kod));
+
+CREATE TABLE Alapanyag
+(a_kod INT PRIMARY KEY NOT NULL,
+nev VARCHAR(50),
+mennyiseg INT,
+lejarat DATE,
+gy_kod INT,
+b_kod INT,
+FOREIGN KEY(gy_kod) REFERENCES Gyartas(gy_kod),
+FOREIGN KEY(b_kod) REFERENCES Beszallito(b_kod));
