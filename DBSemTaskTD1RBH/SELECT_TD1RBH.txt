@@ -1,0 +1,57 @@
+Azon megrendelések dátuma és neve ahol a darabszám több mint kettő.
+SELECT dátum,név FROM Megrendelések;
+
+πdatum,nevMegrendelések)
+
+
+Azon készleten lévő elemek kódja és darabszáma amelyek mérete nagyobb mint 190.
+SELECT k_kod,db FROM Készlet WHERE méret > 190;
+
+πk_kod,db(Ნmeret>190(Keszlet))
+
+
+Azon készlet elemei amelyeknek a gyártási éve nem régebbi mint 2020.01.01.
+SELECT * FROM Készlet WHERE gyártási_év >= '2020-01-01';
+
+Ნgyartasi_ev>=2020-01-01(Keszlet)
+
+
+Azon alapanyag elemei ahol a mennyiség több mint 200.
+SELECT * FROM Alapanyag WHERE mennyiség > 200;
+
+Ნmennyiseg>200(Alapanyag)
+
+ 
+Azon megrendelők neve amelyeknél a dátum nem régebbi mint 2019.01.01.
+SELECT nev,db FROM Megrendelések WHERE dátum >= '2019-01-01';
+
+πnev,db(Ნdatum>2019-01-01(Megrendelések))
+
+
+Összeszámolja, hogy hány darab beszállító van.
+SELECT COUNT(DISTINCT b_kod) FROM Beszállító;
+
+гcount(*)(Beszállító)
+
+
+Kilistázza azon alapanyag neveit amelyek mennyisége 50 feletti és felhasználhatósága 2021.01.01-nél későbbi.
+SELECT nev FROM Alapanyag WHERE mennyiség > 50 OR lejárat > '2021-01-01';
+
+πnev(Ნmennyiseg > 50 OR lejarat > ’2021-01-01’(Alapanyag))
+
+
+Kilistázza az összes rendelést és termék adatait.
+SELECT megrendelések.nev as 'Megrendelők neve', dátum, készlet.nev as 'Termék neve', rendelések.db as 'Megrendelt darabszám', méret, gyártási_év, készlet.db as 'Készleten' FROM megrendelések INNER JOIN rendelések ON megrendelések.m_kod = rendelések.m_kod INNER JOIN készlet ON rendelések.k_kod = készlet.k_kod;
+
+π ρ’Megrendelők neve’/megrendelések.nev, ρ’,datum, ρ’Termék neve’/készlet.nev, ρ’Megrendelt darabszám’/rendelések.db,meret,gyartasi_ev, ρ’Készleten’/keszlet.db(megrendelesek⋈Megrendelesek.m_kod = rendelések.m_kod rendelések ⋈rendelések.k_kod = készlet.k_kod készlet)
+
+
+Azon beszállítók kiválasztása amelyek alapanyaga hamarosan elfogy.
+SELECT Beszallito.nev as 'Beszállító neve', Alapanyag.nev as 'Alapanyag neve', mennyiseg FROM Beszallito INNER JOIN Alapanyag ON Beszallito.b_kod = Alapanyag.b_kod WHERE mennyiseg < 110;
+
+π ρ’Beszállító neve’/Beszallito.db, ρ’Alapanyag neve’/Alapanyag.nev, ρ’,mennyiseg  (Ნmennyiseg<110  (Beszallito⋈Beszallito.b_kod = Alapanyag.b_kod Alapanyag))
+
+Legtöbb készleten lévő elem megrendelései.
+SELECT megrendelések.nev,rendelések.db as 'Megrendelt darabszám', dátum, készlet.db as 'Készleten' FROM megrendelések INNER JOIN rendelések ON megrendelések.m_kod = rendelések.m_kod INNER JOIN készlet ON rendelések.k_kod = készlet.k_kod WHERE készlet.db IN (SELECT MAX(db) FROM készlet);
+
+π megrendelések.nev, ρ’Megrendelt darabszám’/rendelések.db, ρ’,dátum, ρ’Készleten’/készlet.db, ρ’, (ᲜKeszlet.db=’MAX(Keszlet.db)’(Megrendelesek⋈Megrendelesek.k_kod = keszlet.k_kodKeszlet ⋈rendelesek.k_kod = keszlet.k_kodKészlet))
