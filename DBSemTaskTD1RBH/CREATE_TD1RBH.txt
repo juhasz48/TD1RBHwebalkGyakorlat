@@ -1,0 +1,54 @@
+CREATE TABLE Megrendelések(
+    m_kod INT PRIMARY KEY,
+    dátum DATE NOT NULL,
+    nev VARCHAR(30),
+    irsz CHAR(4),
+    utca VARCHAR(40),
+    hsz INT);
+    
+
+CREATE TABLE Készlet(
+    k_kod INT PRIMARY KEY,
+    méret INT NOT NULL,
+    gyártási_év DATE NOT NULL,
+    db INT,
+    nev VARCHAR(40));
+
+CREATE TABLE Beszállító(
+    b_kod INT PRIMARY KEY,
+    nev VARCHAR(30),
+    irsz CHAR(4),
+    utca VARCHAR(40),
+    hsz INT);
+
+CREATE TABLE rendelések(
+    r_id INT PRIMARY KEY,
+    m_kod INT,
+    k_kod INT,
+    db INT,
+    FOREIGN KEY (m_kod) REFERENCES megrendelések(m_kod),
+    FOREIGN KEY (k_kod) REFERENCES készlet(k_kod));
+
+CREATE TABLE alapanyag(
+    a_kod INT PRIMARY KEY NOT NULL,
+    nev VARCHAR(50),
+    mennyiseg INT,
+    lejarat DATE,
+    b_kod INT,
+    FOREIGN KEY(b_kod) REFERENCES beszállító(b_kod));
+
+CREATE TABLE gyártás(
+    gy_kod INT PRIMARY KEY NOT NULL,
+    kaucsuk INT,
+    olaj INT,
+    idotartam INT,
+    k_kod INT,
+    FOREIGN KEY (k_kod) REFERENCES készlet(k_kod));
+
+
+CREATE TABLE felhasznált_anyagok(
+    f_kod INT PRIMARY KEY,
+    gy_kod INT,
+    a_kod INT,
+    FOREIGN KEY (gy_kod) REFERENCES gyártás(gy_kod),
+    FOREIGN KEY (a_kod) REFERENCES alapanyag(a_kod));

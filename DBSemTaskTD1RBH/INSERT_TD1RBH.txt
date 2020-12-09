@@ -1,0 +1,56 @@
+INSERT INTO Megrendelések VALUE('1','2018-11-20','Nagy Márton','2555','Williams',56);
+INSERT INTO Megrendelések VALUE('2','2017-11-10','Kiss Tamás','3412','River',56);
+INSERT INTO Megrendelések VALUE('3','2020-05-13','Tóth János','1223','Marshall',56);
+INSERT INTO Megrendelések VALUE('4','2020-08-29','Nagy Imre','1808','Eagle',56);
+INSERT INTO Megrendelések VALUE('5','2019-10-05','Tóth Máté','3656','Maple',56);
+INSERT INTO Megrendelések VALUE('6','2020-08-29','Takács Balázs','3525','Wood',56);
+INSERT INTO Megrendelések VALUE('7','2020-05-11','Nagy Balázs','2537','Hamilton',56);
+
+
+INSERT INTO Készlet VALUE('1',200,'2019-01-15',40,'Goodyear Eagle F1');
+INSERT INTO Készlet VALUE('2',195,'2020-05-02',100,'Goodyear Advan');
+INSERT INTO Készlet VALUE('3',190,'2019-11-20',14,'Nokian cLine');
+INSERT INTO Készlet VALUE('4',190,'2018-06-12',0,'Nokian WRD4');
+INSERT INTO Készlet VALUE('5',205,'2020-10-05',60,'Nexen GT02');
+INSERT INTO Készlet VALUE('6',190,'2020-10-10',70,'Nokian WRG2');
+INSERT INTO Készlet VALUE('7',185,'2020-02-10',10,'Apollo Alnac');
+
+
+INSERT INTO Beszállító VALUE('1','Goodyear',1122,'Willow',92);
+INSERT INTO Beszállító VALUE('2','Nokian',1342,'Church',108);
+INSERT INTO Beszállító VALUE('3','Nexen',2574,'Water',36);
+INSERT INTO Beszállító VALUE('4','Apollo',3775,'Lexington',56);
+
+
+INSERT INTO rendelések VALUE('1','2','5',10);
+INSERT INTO rendelések VALUE('2','3','7',8);
+INSERT INTO rendelések VALUE('3','4','2',12);
+INSERT INTO rendelések VALUE('4','5','5',4);
+INSERT INTO rendelések VALUE('5','1','1',8);
+INSERT INTO rendelések VALUE('6','6','3',2);
+
+
+INSERT INTO alapanyag VALUE('1','Ásványi',100,'2022-01-01','2');
+INSERT INTO alapanyag VALUE('2','Növényi',150,'2022-08-10','3');
+INSERT INTO alapanyag VALUE('3','Gyanta',120,'2023-01-05','4');
+INSERT INTO alapanyag VALUE('4','Színezék',210,'2021-12-01','1');
+
+
+INSERT INTO gyártás VALUE('1',70,30,10,'2');
+INSERT INTO gyártás VALUE('2',60,40,8,'3');
+INSERT INTO gyártás VALUE('3',75,25,12,'4');
+INSERT INTO gyártás VALUE('4',80,20,15,'5');
+INSERT INTO gyártás VALUE('5',90,10,20,'1');
+INSERT INTO gyártás VALUE('6',70,30,5,'6');
+
+
+INSERT INTO felhasznált_anyagok VALUE('1','3','2');
+INSERT INTO felhasznált_anyagok VALUE('2','2','1');
+INSERT INTO felhasznált_anyagok VALUE('3','1','1');
+INSERT INTO felhasznált_anyagok VALUE('4','4','4');
+INSERT INTO felhasznált_anyagok VALUE('5','6','3');
+INSERT INTO felhasznált_anyagok VALUE('6','5','2');
+
+
+
+
