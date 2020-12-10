@@ -1,0 +1,11 @@
+Γ sum(befizetes), sum(Eur) ( ε befizetes/369 Eur (befizetes)) 
+
+Γ r..tajszam max(r.nev),sum(b.befizetes) (befizetes b ⋈ b.diak= r.tajszam resztvevo r) 
+
+Γ t.tkod max(r.megnevezes),count(*) (befizetes b ⋈ b.kurzus= t.tkod tanfolyam t) 
+
+Γ t.tkod max(r.megnevezes),count(b.kurzus) (befizetes b ⋈ + b.kurzus= t.tkod tanfolyam t) 
+
+Π t.megnevezes (tanfolyam t ⋈ t.tkod= k.tkod (Π tkod (tanfolyam) \ Π kurzus (jelentkezes)) k) 
+
+Γ t.tkod max(r.megnevezes), count(*) (befizetes b ⋈ b.kurzus= t.tkod tanfolyam t) 
