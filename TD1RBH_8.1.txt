@@ -1,0 +1,9 @@
+Π tkod, nev (ნ kategoria = X (termek)) 
+
+Π t.nev, gy.nev (termek t ⋈ t.gyarto = gy.adoszam gyarto gy) 
+
+Π gy.nev (ნ kategoria = X (termek) t ⋈ t.gyarto = gy.adoszam gyarto gy) 
+
+Γ count(*) (ნ ear > Y (termek))
+
+Γ count(*) (gyarto gy ⋉ t.gyarto = gy.adoszam ნ ear > Y (termek) t )
